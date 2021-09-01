@@ -1,11 +1,17 @@
-- [README](README.md)
+-   [README](README.md)
 
-- **Endpoints**
+---
 
-- [Agency](endpoints/agency.md)
-- [Tag](endpoints/tag.md)
-- [Launch](endpoints/launch.md)
-- [News](endpoints/news.md)
+-   **Endpoints**
 
-- **Links**
-- [Github](https://github.com/solarapp/solar-rest-api)
+-   [Login](endpoints/login.md)
+-   [Agency](endpoints/agency.md)
+-   [Author](endpoints/author.md)
+-   [Tag](endpoints/tag.md)
+-   [Launch](endpoints/launch.md)
+-   [News](endpoints/news.md)
+
+---
+
+-   **Links**
+-   [Github](https://github.com/solarapp/solar-rest-api)
