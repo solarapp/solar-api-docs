@@ -1,15 +1,5 @@
 # **Launch**
 
-<style>
-    article .method {text-transform: uppercase; padding:6px; border-radius: 10px; font-weight: 700; color: white;}
-    ul .method {text-transform: uppercase; padding:4px; border-radius: 8px; font-weight: 700; font-size: 11px; color: white;}
-    .get  {background-color: #6bbd5b;}
-    .post {background-color: #268fb2;}
-    .patch {background-color: #e09d43;}
-    .delete {background-color: #d96367;}
-    .round {padding: 0 9px; margin-right: 5px;}
-</style>
-
 ## <span class="get method">Get</span> **List launches**
 
 `https://api.solarnews.ga/v1/launch`
@@ -23,7 +13,7 @@
 <details>
   <summary>Response</summary>
 
-<span class="get method round"></span> **200: OK**
+<span class="get round"></span> **200: OK**
 
 ```json
 {
@@ -45,17 +35,11 @@
 }
 ```
 
-<span class="delete method round"></span> **400: Bad Request**
+<span class="delete round"></span> **400: Bad Request**
 
 ```json
 {
-  "name": "ValidationError",
-  "message": "Validation Failed",
-  "details": [
-    {
-      "limi1t": "\"limi1t\" is not allowed"
-    }
-  ]
+	"message": "\"limi1t\" is not allowed"
 }
 ```
 
@@ -81,29 +65,23 @@
 <details>
   <summary>Response</summary>
 
-<span class="get method round"></span> **201: Created**
+<span class="get round"></span> **201: Created**
 
 ```json
 {
-  "inserted_id": "612a99defb13e96397347c06"
+	"inserted_id": "612a99defb13e96397347c06"
 }
 ```
 
-<span class="delete method round"></span> **400: Bad Request**
+<span class="delete round"></span> **400: Bad Request**
 
 ```json
 {
-  "name": "ValidationError",
-  "message": "Validation Failed",
-  "details": [
-    {
-      "agency": "\"agency\" is required"
-    }
-  ]
+	"message": "\"agency\" is required"
 }
 ```
 
-<span class="delete method round"></span> **401: Unauthorized**
+<span class="delete round"></span> **401: Unauthorized**
 
 ```json
 Unauthorized
@@ -132,49 +110,31 @@ Unauthorized
 <details>
   <summary>Response</summary>
 
-<span class="get method round"></span> **200: OK**
+<span class="get round"></span> **200: OK**
 
 ```json
 {
-  "edited_obj": {
-    "_id": "612647c160a74d16148b51c2",
-    "created_at": 1630221276000,
-    "last_edited": 1630221276000,
-    "name": "Firefly Alpha",
-    "launch_time_utc": null,
-    "image": "https://www.com",
-    "agency": "61099de37731bd5d74f34eff",
-    "summary": "First flight of the new Firefly Alpha launcher.",
-    "description": "First flight of the new Firefly Alpha small sat launcher developed by Firefly Aerospace.",
-    "webcast": "",
-    "infographic": ""
-  }
+	"edited_id": "612647c160a74d16148b51c2"
 }
 ```
 
-<span class="delete method round"></span> **400: Bad Request**
+<span class="delete round"></span> **400: Bad Request**
 
 ```json
 {
-  "name": "ValidationError",
-  "message": "Validation Failed",
-  "details": [
-    {
-      "title": "\"title\" is not allowed"
-    }
-  ]
+	"message": "\"title\" is not allowed"
 }
 ```
 
-<span class="delete method round"></span> **404: Not Found**
+<span class="delete round"></span> **404: Not Found**
 
 ```json
 {
-  "message": "launch not found"
+	"message": "launch not found"
 }
 ```
 
-<span class="delete method round"></span> **401: Unauthorized**
+<span class="delete round"></span> **401: Unauthorized**
 
 ```json
 Unauthorized
@@ -194,35 +154,23 @@ Unauthorized
 <details>
   <summary>Response</summary>
 
-<span class="get method round"></span> **200: OK**
+<span class="get round"></span> **200: OK**
 
 ```json
 {
-  "deleted_obj": {
-    "_id": "612647c160a74d16148b51c2",
-    "created_at": 1630221276000,
-    "last_edited": 1630221276000,
-    "name": "Firefly Alpha",
-    "launch_time_utc": null,
-    "image": "https://www.com",
-    "agency": "61099de37731bd5d74f34eff",
-    "summary": "First flight of the new Firefly Alpha launcher.",
-    "description": "First flight of the new Firefly Alpha small sat launcher developed by Firefly Aerospace.",
-    "webcast": "",
-    "infographic": ""
-  }
+	"deleted_id": "612647c160a74d16148b51c2"
 }
 ```
 
-<span class="delete method round"></span> **404: Not Found**
+<span class="delete round"></span> **404: Not Found**
 
 ```json
 {
-  "message": "launch not found"
+	"message": "launch not found"
 }
 ```
 
-<span class="delete method round"></span> **401: Unauthorized**
+<span class="delete round"></span> **401: Unauthorized**
 
 ```json
 Unauthorized

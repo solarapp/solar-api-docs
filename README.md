@@ -1,6 +1,8 @@
 # Solar REST api
 
-A RESTful api created to provide data to the Solar application
+A RESTful api created to provide data to the Solar application\
+\
+The current api endpoint can be found at `api.solarnews.ga`
 
 ## Conventions
 
