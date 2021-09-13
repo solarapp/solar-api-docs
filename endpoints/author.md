@@ -1,26 +1,31 @@
+
+
+
+
 # **Author**
 
-## <span class="get method">Get</span> **List authors**
+An author is someone how writes news and/or insights.
+
+## <span class="get method">get</span> **List authors**
 
 `https://api.solarnews.ga/v1/author`
 
 <details>
-  <summary>Response</summary>
+<summary>Response</summary>
 
 <span class="get round"></span> **200: OK**
 
 ```json
 {
-	"result": [
-		{
-			"_id": "612f7903e8c0aff51deeffe6",
-			"name": "Elon",
-			"logo": "https://www.com",
-			"description": "Elon Musk"
-		}
-	]
+    "result": {
+        "_id": "610acd67d0196ee0a17a841a",
+        "description": "Elon Musk",
+        "logo": "https://www.com",
+        "name": "Elon"
+    }
 }
 ```
+
 
 </details>
 
@@ -28,37 +33,36 @@
 
 `https://api.solarnews.ga/v1/author`
 
-| Name          | type     | in     | description  |
-| ------------- | -------- | ------ | ------------ |
-| Authorization | `string` | header | Bearer Token |
-| name          | `string` | body   |              |
-| logo          | `string` | body   |              |
-| description   | `string` | body   |              |
+|name|type|in|required|
+| :---: | :---: | :---: | :---: |
+|Authorization|`string`|header|True|
+|name|`string`|body|True|
+|logo|`string`|body|True|
+|description|`string`|body|True|
 
 <details>
-  <summary>Response</summary>
+<summary>Response</summary>
 
 <span class="get round"></span> **201: Created**
 
 ```json
 {
-	"inserted_id": "612f7903e8c0aff51deeffe6"
+    "inserted_id": "610acd67d0196ee0a17a841a"
 }
 ```
-
 <span class="delete round"></span> **400: Bad Request**
 
 ```json
 {
-	"message": "\"name\" is required"
+    "message": "\"name\" is required"
 }
 ```
-
 <span class="delete round"></span> **401: Unauthorized**
 
 ```json
-Unauthorized
+"Unauthorized"
 ```
+
 
 </details>
 
@@ -66,45 +70,43 @@ Unauthorized
 
 `https://api.solarnews.ga/v1/author/:id`
 
-| Name          | type     | in     | description  |
-| ------------- | -------- | ------ | ------------ |
-| id            | `string` | param  | author id    |
-| Authorization | `string` | header | Bearer Token |
-| name          | `string` | body   | not required |
-| logo          | `string` | body   | not required |
-| description   | `string` | body   | not required |
+|name|type|in|required|
+| :---: | :---: | :---: | :---: |
+|id|`string`|params|True|
+|Authorization|`string`|header|True|
+|name|`string`|body|False|
+|logo|`string`|body|False|
+|description|`string`|body|False|
 
 <details>
-  <summary>Response</summary>
+<summary>Response</summary>
 
 <span class="get round"></span> **200: OK**
 
 ```json
 {
-	"edited_id": "612f7903e8c0aff51deeffe6"
+    "edited_id": "610acd67d0196ee0a17a841a"
 }
 ```
-
 <span class="delete round"></span> **400: Bad Request**
 
 ```json
 {
-	"message": "\"title\" is not allowed"
+    "message": "\"title\" is not allowed"
 }
 ```
-
 <span class="delete round"></span> **404: Not Found**
 
 ```json
 {
-	"message": "agency not found"
+    "message": "item not found"
 }
 ```
-
 <span class="delete round"></span> **401: Unauthorized**
 
 ```json
-Unauthorized
+"Unauthorized"
 ```
+
 
 </details>

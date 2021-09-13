@@ -1,83 +1,63 @@
 # **News**
 
-## <span class="get method">Get</span> **List News**
+A news objects rapresent an article writte by one of the authors and classified by some tags
+
+## <span class="get method">get</span> **List agencies**
 
 `https://api.solarnews.ga/v1/news`
 
-| Name    | type     | in    | description  |
-| ------- | -------- | ----- | ------------ |
-| limit   | `string` | query |              |
-| insight | `bool`   | query |              |
-| offset  | `string` | query | not required |
-| tag     | `string` | query | not required |
+|  name   |   type   |  in   | required |
+| :-----: | :------: | :---: | :------: |
+| insight |  `bool`  | query |   True   |
+|  limit  | `number` | query |  False   |
+| offset  | `number` | query |  False   |
+|   tag   | `string` | query |  False   |
 
 <details>
-  <summary>Response</summary>
+<summary>Response</summary>
 
 <span class="get round"></span> **200: OK**
 
 ```json
 {
-	"result": [
-		{
-			"_id": "610ef0cd756e0a9ad5013416",
-			"created_at": 1625485221763,
-			"last_edited": 1628494652588,
-			"image": "https://www.com",
-			"tags": [
-				{
-					"_id": "610ae608613feab861302c70",
-					"name": "Exploration",
-					"color": "00ff00",
-					"description": "Tag for exploration news"
-				}
-			],
-			"summary": "...",
-			"description": "...",
-			"insight": false
-		}
-	]
-}
-```
-
-<span class="delete round"></span> **400: Bad Request**
-
-```json
-{
-	"message": "\"limi1t\" is not allowed"
-}
-```
-
-```json
-{
-	"message": "insight query is missing"
+	"result": {
+		"_id": "610ef0cd756e0a9ad5013416",
+		"created_at": 1625485221763,
+		"description": "...",
+		"image": "https://www.com",
+		"insight": false,
+		"last_edited": 1628494652588,
+		"summary": "...",
+		"tags": ["tags object"]
+	}
 }
 ```
 
 </details>
 
-## <span class="post method">Post</span> **Add news**
+## <span class="post method">post</span> **Add launch**
 
 `https://api.solarnews.ga/v1/news`
 
-| Name          | type     | in     | description  |
-| ------------- | -------- | ------ | ------------ |
-| Authorization | `string` | header | Bearer Token |
-| name          | `string` | body   |              |
-| image         | `string` | body   |              |
-| tags          | `list`   | body   | max len = 4  |
-| summary       | `string` | body   |              |
-| description   | `string` | body   |              |
-| insight       | `bool`   | body   |              |
+|     name      |   type   |   in   | required |
+| :-----------: | :------: | :----: | :------: |
+| Authorization | `string` | header |   True   |
+|  created_at   | `string` |  body  |   True   |
+|  last_edited  | `string` |  body  |   True   |
+|     image     | `string` |  body  |   True   |
+|     tags      |  `list`  |  body  |   True   |
+|    summary    | `string` |  body  |   True   |
+|  description  | `string` |  body  |   True   |
+|    insight    |  `bool`  |  body  |   True   |
 
 <details>
-  <summary>Response</summary>
+<summary>Response</summary>
 
 <span class="get round"></span> **201: Created**
 
 ```json
 {
-	"inserted_id": "612a99defb13e96397347c06"
+	"inserted_id": "610acd67d0196ee0a17a841a"
 }
 ```
 
@@ -85,41 +65,42 @@
 
 ```json
 {
-	"message": "\"agency\" is required"
+	"message": "\"name\" is required"
 }
 ```
 
 <span class="delete round"></span> **401: Unauthorized**
 
 ```json
-Unauthorized
+"Unauthorized"
 ```
 
 </details>
 
-## <span class="patch method">Patch</span> **Edit news**
+## <span class="patch method">patch</span> **Edit launch**
 
 `https://api.solarnews.ga/v1/news/:id`
 
-| Name          | type     | in     | description  |
-| ------------- | -------- | ------ | ------------ |
-| id            | `string` | param  | news id      |
-| Authorization | `string` | header | Bearer Token |
-| name          | `string` | body   |              |
-| image         | `string` | body   |              |
-| tags          | `list`   | body   | max len = 4  |
-| summary       | `string` | body   |              |
-| description   | `string` | body   |              |
-| insight       | `bool`   | body   |              |
+|     name      |   type   |   in   | required |
+| :-----------: | :------: | :----: | :------: |
+|      id       | `string` | params |   True   |
+| Authorization | `string` | header |   True   |
+|  created_at   | `string` |  body  |  False   |
+|  last_edited  | `string` |  body  |  False   |
+|     image     | `string` |  body  |  False   |
+|     tags      | `string` |  body  |  False   |
+|    summary    | `string` |  body  |  False   |
+|  description  | `string` |  body  |  False   |
+|    insight    | `string` |  body  |  False   |
 
 <details>
-  <summary>Response</summary>
+<summary>Response</summary>
 
 <span class="get round"></span> **200: OK**
 
 ```json
 {
-	"edited_id": "610ef0cd756e0a9ad5013416"
+	"edited_id": "610acd67d0196ee0a17a841a"
 }
 ```
 
@@ -135,35 +116,35 @@ Unauthorized
 
 ```json
 {
-	"message": "news not found"
+	"message": "item not found"
 }
 ```
 
 <span class="delete round"></span> **401: Unauthorized**
 
 ```json
-Unauthorized
+"Unauthorized"
 ```
 
 </details>
 
-## <span class="delete method">Delete</span> **Delete news**
+## <span class="delete method">delete</span> **Delete launch**
 
 `https://api.solarnews.ga/v1/news/:id`
 
-| Name          | type     | in     | description  |
-| ------------- | -------- | ------ | ------------ |
-| id            | `string` | param  | news id      |
-| Authorization | `string` | header | Bearer Token |
+|     name      |   type   |   in   | required |
+| :-----------: | :------: | :----: | :------: |
+|      id       | `string` | params |   True   |
+| Authorization | `string` | header |   True   |
 
 <details>
-  <summary>Response</summary>
+<summary>Response</summary>
 
 <span class="get round"></span> **200: OK**
 
 ```json
 {
-	"deleted_id": "610ef0cd756e0a9ad5013416"
+	"deleted_id": "610acd67d0196ee0a17a841a"
 }
 ```
 
@@ -171,14 +152,14 @@ Unauthorized
 
 ```json
 {
-	"message": "news not found"
+	"message": "item not found"
 }
 ```
 
 <span class="delete round"></span> **401: Unauthorized**
 
 ```json
-Unauthorized
+"Unauthorized"
 ```
 
 </details>

@@ -1,96 +1,136 @@
+
+
+
+
 # **Login**
 
-## <span class="get method">get</span> **Check**
+A set of endpoint that allow for login of the maintainers, with the returned token it's possible to gain access to the 
+POST, PATCH and DELETE endpoints
 
-`https://api.solarnews.ga/v1/verify`
+## <span class="get method">get</span> **check**
 
 Checks if it is a valid token
 
-| Name  | type     | in     | description |
-| ----- | -------- | ------ | ----------- |
-| token | `string` | header |             |
+`https://api.solarnews.ga/v1/check`
+
+|name|type|in|required|
+| :---: | :---: | :---: | :---: |
+|Authorization|`string`|header|True|
 
 <details>
-  <summary>Response</summary>
+<summary>Response</summary>
 
 <span class="get round"></span> **200: OK**
 
 ```json
-ok
+"OK"
 ```
-
 <span class="delete round"></span> **401: Unauthorized**
 
 ```json
-Unauthorized
+"Unauthorized"
 ```
+
 
 </details>
 
-## <span class="get method">get</span> **Verify**
-
-`https://api.solarnews.ga/v1/verify`
+## <span class="get method">get</span> **verify**
 
 Sends a 2fa authentication code to the user's discord dms
 
-| Name     | type     | in     | description |
-| -------- | -------- | ------ | ----------- |
-| mail     | `string` | header |             |
-| password | `string` | header |             |
+`https://api.solarnews.ga/v1/verify`
+
+|name|type|in|required|
+| :---: | :---: | :---: | :---: |
+|mail|`string`|header|True|
+|password|`string`|header|True|
 
 <details>
-  <summary>Response</summary>
+<summary>Response</summary>
+
+<span class="get round"></span> **200: OK**
+
+```json
+"OK"
+```
+<span class="delete round"></span> **400: Bad Request**
+
+```json
+{
+    "message": "\"mail\" is not allowed"
+}
+```
+<span class="delete round"></span> **401: Unauthorized**
+
+```json
+{
+    "message": "\"User not found\" is not allowed"
+}
+```
+
+
+</details>
+
+## <span class="get method">get</span> **verify**
+
+Sends a 2fa authentication code to the user's discord dms
+
+`https://api.solarnews.ga/v1/verify`
+
+|name|type|in|required|
+| :---: | :---: | :---: | :---: |
+|mail|`string`|header|True|
+|password|`string`|header|True|
+|authcode|`number`|header|True|
+
+<details>
+<summary>Response</summary>
 
 <span class="get round"></span> **200: OK**
 
 ```json
 {
-	"message": "OK"
+    "token": "a valid api token"
 }
 ```
-
-</details>
-
-## <span class="get method">Get</span> **Login**
-
-`https://api.solarnews.ga/v1/login`
-
-| Name     | type     | in     | description |
-| -------- | -------- | ------ | ----------- |
-| mail     | `string` | header |             |
-| password | `string` | header |             |
-| authcode | `string` | header |             |
-
-<details>
-  <summary>Response</summary>
-
-<span class="get round"></span> **200: OK**
+<span class="delete round"></span> **400: Bad Request**
 
 ```json
 {
-	"token": "a valid api token"
+    "message": "\"mail\" is not allowed"
+}
+```
+<span class="delete round"></span> **401: Unauthorized**
+
+```json
+{
+    "message": "\"User not found\" is not allowed"
 }
 ```
 
+
 </details>
 
-## <span class="get method">get</span> **Hash**
+## <span class="get method">get</span> **hash**
+
+returns an hashed password
 
 `https://api.solarnews.ga/v1/hash`
 
-| Name     | type     | in     | description |
-| -------- | -------- | ------ | ----------- |
-| password | `string` | header |             |
+|name|type|in|required|
+| :---: | :---: | :---: | :---: |
+|password|`string`|header|True|
 
 <details>
-  <summary>Response</summary>
+<summary>Response</summary>
 
 <span class="get round"></span> **200: OK**
 
 ```json
 {
-	"hash": "hashed password"
+    "hash": "hashed password"
 }
 ```
+
 
 </details>

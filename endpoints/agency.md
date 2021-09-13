@@ -1,28 +1,34 @@
+
+
+
+
 # **Agency**
 
-## <span class="get method">Get</span> **List agencies**
+An agency represents an organization which is involved in the development and launch of rockets. It is used to sort 
+launches.
+
+## <span class="get method">get</span> **List agencies**
 
 `https://api.solarnews.ga/v1/agency`
 
 <details>
-  <summary>Response</summary>
+<summary>Response</summary>
 
 <span class="get round"></span> **200: OK**
 
 ```json
 {
-	"result": [
-		{
-			"_id": "610acd67d0196ee0a17a841a",
-			"name": "NASA",
-			"description": "an independent agency of the U.S. federal government",
-			"logo": "https://www.com/",
-			"founding_year": 1958,
-			"image": "https://www.com/"
-		}
-	]
+    "result": {
+        "_id": "610acd67d0196ee0a17a841a",
+        "description": "an independent agency of the U.S. federal government",
+        "founding_year": 1958,
+        "image": "https://www.com/",
+        "logo": "https://www.com/",
+        "name": "NASA"
+    }
 }
 ```
+
 
 </details>
 
@@ -30,39 +36,38 @@
 
 `https://api.solarnews.ga/v1/agency`
 
-| Name          | type     | in     | description  |
-| ------------- | -------- | ------ | ------------ |
-| Authorization | `string` | header | Bearer Token |
-| name          | `string` | body   |              |
-| logo          | `string` | body   |              |
-| description   | `string` | body   |              |
-| founding_year | `int`    | body   |              |
-| image         | `string` | body   |              |
+|name|type|in|required|
+| :---: | :---: | :---: | :---: |
+|Authorization|`string`|header|True|
+|name|`string`|body|True|
+|description|`string`|body|True|
+|logo|`string`|body|True|
+|founding_year|`string`|body|True|
+|image|`string`|body|True|
 
 <details>
-  <summary>Response</summary>
+<summary>Response</summary>
 
 <span class="get round"></span> **201: Created**
 
 ```json
 {
-	"inserted_id": "610acd67d0196ee0a17a841a"
+    "inserted_id": "610acd67d0196ee0a17a841a"
 }
 ```
-
 <span class="delete round"></span> **400: Bad Request**
 
 ```json
 {
-	"message": "\"name\" is required"
+    "message": "\"name\" is required"
 }
 ```
-
 <span class="delete round"></span> **401: Unauthorized**
 
 ```json
-Unauthorized
+"Unauthorized"
 ```
+
 
 </details>
 
@@ -70,47 +75,45 @@ Unauthorized
 
 `https://api.solarnews.ga/v1/agency/:id`
 
-| Name          | type     | in     | description  |
-| ------------- | -------- | ------ | ------------ |
-| id            | `string` | param  | agency id    |
-| Authorization | `string` | header | Bearer Token |
-| name          | `string` | body   | not required |
-| logo          | `string` | body   | not required |
-| description   | `string` | body   | not required |
-| founding_year | `int`    | body   | not required |
-| image         | `string` | body   | not required |
+|name|type|in|required|
+| :---: | :---: | :---: | :---: |
+|id|`string`|params|True|
+|Authorization|`string`|header|True|
+|name|`string`|body|False|
+|description|`string`|body|False|
+|logo|`string`|body|False|
+|founding_year|`string`|body|False|
+|image|`string`|body|False|
 
 <details>
-  <summary>Response</summary>
+<summary>Response</summary>
 
 <span class="get round"></span> **200: OK**
 
 ```json
 {
-	"edited_id": "610acd67d0196ee0a17a841a"
+    "edited_id": "610acd67d0196ee0a17a841a"
 }
 ```
-
 <span class="delete round"></span> **400: Bad Request**
 
 ```json
 {
-	"message": "\"title\" is not allowed"
+    "message": "\"title\" is not allowed"
 }
 ```
-
 <span class="delete round"></span> **404: Not Found**
 
 ```json
 {
-	"message": "agency not found"
+    "message": "item not found"
 }
 ```
-
 <span class="delete round"></span> **401: Unauthorized**
 
 ```json
-Unauthorized
+"Unauthorized"
 ```
+
 
 </details>

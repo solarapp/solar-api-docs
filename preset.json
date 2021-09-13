@@ -1,0 +1,90 @@
+{
+	"response": {
+		"get": [
+			{
+				"status": 200,
+				"example": {
+					"result": []
+				}
+			}
+		],
+		"post": [
+			{
+				"status": 201,
+				"example": {
+					"inserted_id": "610acd67d0196ee0a17a841a"
+				}
+			},
+			{
+				"status": 400,
+				"example": {
+					"message": "\"name\" is required"
+				}
+			},
+			{
+				"status": 401,
+				"example": "Unauthorized"
+			}
+		],
+		"patch": [
+			{
+				"status": 200,
+				"example": {
+					"edited_id": "610acd67d0196ee0a17a841a"
+				}
+			},
+			{
+				"status": 400,
+				"example": {
+					"message": "\"title\" is not allowed"
+				}
+			},
+			{
+				"status": 404,
+				"example": {
+					"message": "item not found"
+				}
+			},
+			{
+				"status": 401,
+				"example": "Unauthorized"
+			}
+		],
+		"delete": [
+			{
+				"status": 200,
+				"example": {
+					"deleted_id": "610acd67d0196ee0a17a841a"
+				}
+			},
+			{
+				"status": 404,
+				"example": {
+					"message": "item not found"
+				}
+			},
+			{
+				"status": 401,
+				"example": "Unauthorized"
+			}
+		]
+	},
+	"request": {
+		"post": [{ "name": "Authorization", "type": "string", "in": "header", "required": true }],
+		"patch": [
+			{ "name": "id", "type": "string", "in": "params", "required": true },
+			{ "name": "Authorization", "type": "string", "in": "header", "required": true }
+		],
+		"delete": [
+			{ "name": "id", "type": "string", "in": "params", "required": true },
+			{ "name": "Authorization", "type": "string", "in": "header", "required": true }
+		]
+	},
+	"status": {
+		"200": ["get", "200: OK"],
+		"201": ["get", "201: Created"],
+		"400": ["delete", "400: Bad Request"],
+		"401": ["delete", "401: Unauthorized"],
+		"404": ["delete", "404: Not Found"]
+	}
+}
